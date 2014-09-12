@@ -1,0 +1,78 @@
+Index: linux-3.3.8.ralink/drivers/usb/gadget/gadget_chips.h
+===================================================================
+--- linux-3.3.8.ralink/drivers/usb/gadget/gadget_chips.h	(版本 21)
++++ linux-3.3.8.ralink/drivers/usb/gadget/gadget_chips.h	(工作副本)
+@@ -51,6 +51,13 @@
+ #define gadget_is_s3c_hsotg(g)		(!strcmp("s3c-hsotg", (g)->name))
+ #define gadget_is_s3c_hsudc(g)		(!strcmp("s3c-hsudc", (g)->name))
+ 
++/* Ralin SoC USB device controller */
++#ifdef CONFIG_USB_GADGET_RT
++#define gadget_is_rt(g)         	(!strcmp("rt_udc", (g)->name))
++#else
++#define gadget_is_rt(g)         0
++#endif
++
+ /**
+  * usb_gadget_controller_number - support bcdDevice id convention
+  * @gadget: the controller being driven
+@@ -118,6 +125,9 @@
+ 		return 0x31;
+ 	else if (gadget_is_dwc3(gadget))
+ 		return 0x32;
++	//for RT USB device controller
++	else if (gadget_is_rt(gadget))
++		return 0x40;
+ 
+ 	return -ENOENT;
+ }
+Index: linux-3.3.8.ralink/drivers/usb/gadget/Makefile
+===================================================================
+--- linux-3.3.8.ralink/drivers/usb/gadget/Makefile	(版本 21)
++++ linux-3.3.8.ralink/drivers/usb/gadget/Makefile	(工作副本)
+@@ -71,3 +71,4 @@
+ obj-$(CONFIG_USB_G_WEBCAM)	+= g_webcam.o
+ obj-$(CONFIG_USB_G_NCM)		+= g_ncm.o
+ obj-$(CONFIG_USB_G_ACM_MS)	+= g_acm_ms.o
++obj-$(CONFIG_USB_RT)		+= rt_udc_pdma.o
+\ No newline at end of file
+Index: linux-3.3.8.ralink/drivers/usb/gadget/Kconfig
+===================================================================
+--- linux-3.3.8.ralink/drivers/usb/gadget/Kconfig	(版本 21)
++++ linux-3.3.8.ralink/drivers/usb/gadget/Kconfig	(工作副本)
+@@ -494,6 +494,21 @@
+ 	  dynamically linked module called "ci13xxx_msm" and force all
+ 	  gadget drivers to also be dynamically linked.
+ 
++config USB_GADGET_RT
++	boolean "Ralink USB Device Port"
++	depends on RALINK_MT7620 || RALINK_RT3352
++	select USB_GADGET_SELECTED
++	select USB_GADGET_DUALSPEED
++	help
++	   Say "y" to link the driver statically, or "m" to build a
++	   dynamically linked module called "rt_udc" and force all
++	   gadget drivers to also be dynamically linked.
++
++config USB_RT
++	tristate
++	depends on USB_GADGET_RT
++	default USB_GADGET
++
+ #
+ # LAST -- dummy/emulated controller
+ #
+Index: linux-3.3.8.ralink/drivers/usb/gadget/file_storage.c
+===================================================================
+--- linux-3.3.8.ralink/drivers/usb/gadget/file_storage.c	(版本 21)
++++ linux-3.3.8.ralink/drivers/usb/gadget/file_storage.c	(工作副本)
+@@ -2080,6 +2080,9 @@
+ 					&bh->inreq_busy, &bh->state);
+ 			fsg->next_buffhd_to_fill = bh->next;
+ 			if (mod_data.can_stall)
++// Ralink/MTK: derive from Synopsys OTG driver.
++// Both Synopsys & Cast controller unable to support STALL very well.
++//				rc = halt_bulk_in_endpoint(fsg);
+ 				rc = halt_bulk_in_endpoint(fsg);
+ 		}
+ 		break;

@@ -1,0 +1,15 @@
+diff -Nru a/include/linux/config.h b/include/linux/config.h
+--- a/include/linux/config.h	1970-01-01 08:00:00.000000000 +0800
++++ b/include/linux/config.h	2011-02-25 19:09:07.000000000 +0800
+@@ -0,0 +1,11 @@
++#ifndef _LINUX_CONFIG_H
++#define _LINUX_CONFIG_H
++
++#include <linux/version.h>
++#if LINUX_VERSION_CODE >= KERNEL_VERSION(2,6,33)
++#include <generated/autoconf.h>
++#else
++#include <linux/autoconf.h>
++#endif
++
++#endif

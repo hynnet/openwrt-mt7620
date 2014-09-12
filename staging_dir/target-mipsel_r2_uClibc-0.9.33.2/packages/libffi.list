@@ -1,0 +1,13 @@
+./
+./host
+./usr
+./usr/include
+./usr/include/ffi.h
+./usr/include/ffitarget.h
+./usr/lib
+./usr/lib/pkgconfig
+./usr/lib/pkgconfig/libffi.pc
+./usr/lib/libffi.so.5
+./usr/lib/libffi.so.5.0.10
+./usr/lib/libffi.a
+./usr/lib/libffi.so

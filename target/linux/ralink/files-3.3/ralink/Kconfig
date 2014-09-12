@@ -1,0 +1,194 @@
+menu "Ralink Module"
+
+###########
+# Debuging
+###########
+source "drivers/net/ethernet/rt_rdm/Kconfig"
+
+#############
+# Wire
+#############
+
+source "drivers/net/ethernet/raeth/Kconfig"
+
+source "drivers/net/ethernet/rtl8367/Kconfig"
+
+#############
+# Wireless
+#############
+menuconfig WIFI_DRIVER
+	bool "WiFi Driver Support"
+
+if WIFI_DRIVER
+choice
+	prompt "Choose First WiFi Interface"
+	config  FIRST_IF_NONE
+	bool "None"
+	config  FIRST_IF_RT2860
+	bool "RT2860"
+endchoice
+choice
+	prompt "Choose Second WiFi Interface"
+	config  SECOND_IF_NONE
+	bool "None"
+	config  SECOND_IF_RT3092
+	bool "RT3092"
+	config  SECOND_IF_RT5392
+	bool "RT5392"
+	config  SECOND_IF_RT5592
+	bool "RT5592"
+	config  SECOND_IF_RT3593
+	bool "RT3593"
+	config  SECOND_IF_MT7610
+	bool "MT7610"
+	config  SECOND_IF_RT3572
+	bool "RT3572"
+	config  SECOND_IF_RT5572
+	bool "RT5572"
+endchoice
+
+config  RT2860V2_2850
+        bool "Dual Band"
+        depends on RALINK_RT2880
+        
+config  NET_RADIO
+	bool "Wireless radio"
+	default y
+
+choice
+        prompt "RF Type"
+        depends on RALINK_RT5350 
+        default RALINK_RT5350_1T1R
+
+        config  RALINK_RT5350_1T1R
+        bool "1T1R"
+endchoice
+
+choice
+        prompt "RF Type"
+        depends on RALINK_RT3052
+        default RALINK_RT3052_2T2R
+
+        config  RALINK_RT3050_1T1R
+        bool "1T1R"
+
+        config  RALINK_RT3051_1T2R
+        bool "1T2R"
+
+        config  RALINK_RT3052_2T2R
+        bool "2T2R"
+endchoice
+
+choice
+        prompt "RF Type"
+        depends on  RALINK_RT3352 
+
+        config  RALINK_RT3352_2T2R
+        bool "2T2R"
+endchoice
+
+choice
+	prompt "RF Type"
+	depends on RALINK_RT3883
+
+	config  RALINK_RT3662_2T2R
+	bool "2T3R (RT3662)"
+
+	config  RALINK_RT3883_3T3R
+	bool "3T3R (RT3883)"
+endchoice
+
+source "drivers/net/wireless/rt2860v2_ap/Kconfig"
+config  RA_CLASSIFIER
+	tristate "Ralink Flow Classifier"
+	depends on RT2860V2_AP_VIDEO_TURBINE || RT2860V2_STA_VIDEO_TURBINE
+	default n
+source "drivers/net/wireless/rt2860v2_sta/Kconfig"
+
+#source "drivers/net/wireless/RTPCI_ap/Kconfig"
+
+#source "drivers/net/wireless/RT3090_ap/Kconfig"
+
+#source "drivers/net/wireless/RT5392_ap/Kconfig"
+
+#source "drivers/net/wireless/RT5592_ap/Kconfig"
+
+#source "drivers/net/wireless/RT3593_ap/Kconfig"
+
+#source "drivers/net/wireless/RT3572_ap/Kconfig"
+
+#source "drivers/net/wireless/RT5572_ap/Kconfig"
+
+#source "drivers/net/wireless/MT7610_ap/Kconfig"
+
+#source "drivers/net/wireless/iNIC/Kconfig"
+
+#source "drivers/net/wireless/iNIC_RT305x/Kconfig"
+
+#source "drivers/net/wireless/RT3680_ap/Kconfig"
+
+config RTDEV_MII
+bool
+default y if RT2880v2_INIC_MII || RT305x_INIC_MII || RT305x_INIC_USB || RT3680_iNIC_AP
+
+config  RT_FIRST_CARD
+	int
+	depends on ! FIRST_IF_NONE
+	default 2860
+
+config  RT_SECOND_CARD
+	int
+	depends on ! SECOND_IF_NONE
+	default 3090 if SECOND_IF_RT3092
+	default 5392 if SECOND_IF_RT5392
+	default 5592 if SECOND_IF_RT5592
+	default 3593 if SECOND_IF_RT3593
+	default 7610 if SECOND_IF_MT7610
+	default 3572 if SECOND_IF_RT3572
+	default 5572 if SECOND_IF_RT5572
+
+config  RT_FIRST_IF_RF_OFFSET
+	hex
+	depends on ! FIRST_IF_NONE
+	default 0x40000
+
+config  RT_SECOND_IF_RF_OFFSET
+	hex
+	depends on ! SECOND_IF_NONE
+	default 0x48000
+
+#config  UNIQUE_WPS
+#	bool "Unique WPS for Concurrent AP"
+#        depends on RT2860V2_AP_WSC 
+#        depends on RT3090_AP_WSC || RT3572_AP_WSC || RT5392_AP_WSC || RT5572_AP_WSC || RT5592_AP_WSC
+#	default n
+endif # WIFI_DRIVER
+
+config  RTDEV
+	bool
+	default y if WIFI_DRIVER && !SECOND_IF_NONE || RTDEV_MII
+	default y if RTDEV_PLC
+
+#######
+# USB
+#######
+source "drivers/usb/dwc_otg/Kconfig"
+
+#######
+# NAT
+#######
+choice
+prompt "Ralink NAT Type"
+	
+config  RA_NAT_NONE
+bool "None"
+config  RA_NAT_HW
+bool "Hardware"
+depends on !RALINK_RT5350
+endchoice
+
+source "net/nat/hw_nat/Kconfig"
+
+
+endmenu
+

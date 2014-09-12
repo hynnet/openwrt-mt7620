@@ -1,0 +1,209 @@
+Index: linux-3.3.8.ralink/drivers/char/Makefile
+===================================================================
+--- linux-3.3.8.ralink/drivers/char/Makefile	(版本 21)
++++ linux-3.3.8.ralink/drivers/char/Makefile	(工作副本)
+@@ -62,6 +62,14 @@
+ obj-$(CONFIG_PS3_FLASH)		+= ps3flash.o
+ obj-$(CONFIG_RAMOOPS)		+= ramoops.o
+ 
++obj-$(CONFIG_RALINK_GPIO)	+= ralink_gpio.o
++obj-$(CONFIG_RALINK_GDMA)	+= ralink_gdma.o 
++#obj-$(CONFIG_RALINK_GDMA)	+= gdma_test.o 
++obj-$(CONFIG_RALINK_SPI) 	+= spi_drv.o 
++obj-$(CONFIG_RALINK_I2C) 	+= i2c_drv.o
++obj-$(CONFIG_RALINK_PCM)	+= pcm/
++obj-$(CONFIG_RALINK_I2S)	+= i2s/
++
+ obj-$(CONFIG_JS_RTC)		+= js-rtc.o
+ js-rtc-y = rtc.o
+ 
+Index: linux-3.3.8.ralink/drivers/char/Kconfig
+===================================================================
+--- linux-3.3.8.ralink/drivers/char/Kconfig	(版本 21)
++++ linux-3.3.8.ralink/drivers/char/Kconfig	(工作副本)
+@@ -4,6 +4,185 @@
+ 
+ menu "Character devices"
+ 
++config RALINK_GPIO
++	bool "Ralink GPIO Support"
++	default y
++
++config RALINK_GPIO_LED
++	bool "Ralink GPIO LED Support"
++	depends on RALINK_GPIO
++	default y
++
++config RALINK_GDMA
++	tristate "Ralink GDMA Support"
++	default n
++choice
++        prompt "GDMA Channel Allocation Mode"
++	depends on RALINK_GDMA
++	default GDMA_EVERYBODY
++
++	config GDMA_PCM_ONLY
++	        bool "PCM/Others"
++		---help---
++		   RT305x/RT3350/RT2883=>Ch0-Ch7:PCM0/PCM1 
++		   RT3352/RT5350/RT3883/RT6855=>Ch0-Ch7:PCM0/PCM1, Ch8-Ch15:others
++	
++	config GDMA_PCM_I2S_OTHERS
++	        bool "PCM/I2S/Others"
++		---help---
++		   RT305x/RT3350/RT2883=>4Ch:PCM0 / 2Ch:I2S / 2Ch:Others
++		   RT3352/RT5350/RT3883/RT6855=>4Ch:PCM0 / 2Ch:I2S_Tx / 2Ch:I2S_Rx / 8Ch:Others
++
++	config GDMA_EVERYBODY
++	        bool "All for Everybody"
++	
++	config GDMA_DEBUG
++	        bool "Debug Mode 0->1..7->0->1..7.."
++endchoice
++
++config RALINK_SPI
++	tristate "Ralink RT2880 SPI Support"
++	default n
++
++config RALINK_SPI_CS0_HIGH_ACTIVE
++	depends on RALINK_SPI
++	bool "SPI CS0(Chip Select) is high active"
++	default n
++	
++config RALINK_SPI_CS1_HIGH_ACTIVE
++	depends on RALINK_SPI
++	depends on RALINK_RT3883 || RALINK_RT3352 || RALINK_RT5350 || RALINK_RT6855 || RALINK_MT7620
++	bool "SPI CS1(Chip Select) is high active"
++	default n
++
++config RALINK_VITESSE_SWITCH_CONNECT_SPI_CS1
++	depends on RALINK_SPI
++	depends on RALINK_RT3883 || RALINK_RT3352 || RALINK_RT5350 || RALINK_RT6855 || RALINK_MT7620
++	bool "Vitess Switch CS Pin Connects to SPI CS1"
++	default n
++
++config RALINK_SLIC_CONNECT_SPI_CS1
++        depends on RALINK_SPI
++	depends on RALINK_RT3883 || RALINK_RT3352 || RALINK_RT5350 || RALINK_RT6855 || RALINK_MT7620
++        bool "SLIC CS Pin Connects to SPI CS1"
++	default n	
++	
++config RALINK_I2C
++	tristate "Ralink RT2880 I2C Support"
++	default n
++
++config RALINK_PCM
++	tristate "Ralink PCM Support"
++	default n
++
++config RALINK_PCM_SPICH
++	int "PCM use SPI CH"
++	depends on RALINK_PCM
++	range 0 1
++	default "0"
++	---help---
++	PCM use SPI channel number.
++config RALINK_PCMRST_GPIO
++        int "PCM SLIC Reset pin map to GPIO Number"
++        depends on RALINK_PCM
++        range 0 95
++        default "0"
++        ---help---
++        Apply a gpio pin for SLIC RST.
++
++config RALINK_PCMCHNUM
++	int "PCM Total Channel Number Supported"
++	depends on RALINK_PCM
++	range 1 2
++	default "1"
++	---help---
++	Input PCM total channel number that we want to support. 
++
++
++config RALINK_PCMEXTCLK
++        bool "PCM Clock Dividor Source From external OSC"
++	depends on RALINK_PCM
++	depends on RALINK_RT3052
++	default n
++	---help---
++	Select PCM clock dividor source from SoC internal or external OSC.
++
++config RALINK_PCMDIV
++	int "PCM Clock Dividor Value"
++	depends on RALINK_PCM
++	depends on RALINK_RT3052
++	range 0 63
++	default "60"
++	---help---
++	Set PCM clock dividor value based on SoC internal clock (15.625Mhz) or external OSC (eg. 12.288Mhz).
++
++config RALINK_PCMINTDIV
++        int "PCM Clock Dividor Interger Part Value"
++        depends on RALINK_PCM
++        depends on RALINK_RT3352 || RALINK_RT5350 || RALINK_RT3883 || RALINK_RT6855 || RALINK_MT7620
++	range 0 1024
++	default "9"
++	---help---
++	Set PCM clock dividor interger part value based on SoC internal clock (40Mhz).
++
++
++config RALINK_PCMCOMPDIV
++        int "PCM Clock Dividor Fraction Part Value"
++	depends on RALINK_PCM
++	depends on RALINK_RT3352 || RALINK_RT5350 || RALINK_RT3883 || RALINK_RT6855 || RALINK_MT7620
++	range 0 512
++	default "136"
++	---help---
++	Set PCM clock dividor fraction part value based on SoC internal clock (40Mhz).
++
++config RALINK_PCMSLOTMODE
++	int "PCM slot mode"
++	depends on RALINK_PCM
++	range 0 5
++	default "3"
++	---help---
++	PCM slot mode : 0 for 4 slots, 1 for 8 slots, 2 for 16 slots, 3 for 32 slots, 4 for 64 slots, and 5 for 128 slots.
++
++choice 
++	prompt "UARTF_SHARE_MODE Setting"
++	depends on RALINK_PCM
++	default RALINK_PCMGPIO
++	
++	config RALINK_PCMGPIO
++		bool "PCM+GPIO mode"
++	config RALINK_PCMUARTF
++		bool "PCM+UARTF mode"
++	config RALINK_PCMI2S
++		bool "PCM+I2S mode"
++endchoice
++config RALINK_I2S
++	tristate "Ralink I2S Support"
++	select RALINK_I2C
++	select RALINK_GDMA
++	default n
++
++config I2S_IN_CLK
++        bool "Use Internal Reference Clock"
++	depends on RALINK_I2S
++	depends on RALINK_RT3052
++	default n
++config I2S_MS_MODE
++        bool "Ralink SoC as I2S Master Device"
++	depends on RALINK_I2S
++        depends on RALINK_RT3352 || RALINK_RT5350 || RALINK_RT6855 || RALINK_MT7620
++	default n
++choice
++        prompt "Audio Codec MCLK Setting"
++        depends on RALINK_I2S
++        default I2S_MCLK_12MHZ
++	
++	config I2S_MCLK_12MHZ
++	        bool "MCLK is 12Mhz"
++
++	config I2S_MCLK_12P288MHZ
++	        bool "MCLK is 12.288Mhz"
++endchoice
++
+ source "drivers/tty/Kconfig"
+ 
+ config DEVKMEM

@@ -1,0 +1,37 @@
+Index: linux-3.3.8.ralink/drivers/watchdog/Makefile
+===================================================================
+--- linux-3.3.8.ralink/drivers/watchdog/Makefile	(版本 21)
++++ linux-3.3.8.ralink/drivers/watchdog/Makefile	(工作副本)
+@@ -119,6 +119,8 @@
+ 
+ # MIPS Architecture
+ obj-$(CONFIG_ATH79_WDT) += ath79_wdt.o
++obj-$(CONFIG_RALINK_WATCHDOG) += ralink_wdt.o
++obj-$(CONFIG_RALINK_TIMER) += ralink_period.o
+ obj-$(CONFIG_BCM47XX_WDT) += bcm47xx_wdt.o
+ obj-$(CONFIG_BCM63XX_WDT) += bcm63xx_wdt.o
+ obj-$(CONFIG_RC32434_WDT) += rc32434_wdt.o
+Index: linux-3.3.8.ralink/drivers/watchdog/Kconfig
+===================================================================
+--- linux-3.3.8.ralink/drivers/watchdog/Kconfig	(版本 21)
++++ linux-3.3.8.ralink/drivers/watchdog/Kconfig	(工作副本)
+@@ -926,7 +926,19 @@
+ 	help
+ 	  Hardware driver for the built-in watchdog timer on the Atheros
+ 	  AR71XX/AR724X/AR913X SoCs.
++	  
++config RALINK_WATCHDOG
++        tristate "Ralink APSoC Hardware Watchdog"
++        depends on WATCHDOG
++        help
++          timer expired and no process has written to /dev/watchdog during
++          that time.
+ 
++config  RALINK_TIMER_WDG_RESET_OUTPUT
++        bool "Ralink WatchDog Reset Output"
++        depends on RALINK_WATCHDOG
++
++	  
+ config BCM47XX_WDT
+ 	tristate "Broadcom BCM47xx Watchdog Timer"
+ 	depends on BCM47XX

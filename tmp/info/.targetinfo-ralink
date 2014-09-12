@@ -1,0 +1,54 @@
+Source-Makefile: target/linux/ralink/Makefile
+Target: ralink
+Target-Board: ralink
+Target-Name: Ralink SoC
+Target-Path: /home/hiwifi/openwrt-mt7620
+Target-Arch: mipsel
+Target-Arch-Packages: ralink
+Target-Features: squashfs
+Target-Depends: 
+Target-Optimization: -Os -pipe -mips32r2 -mtune=mips32r2 -funit-at-a-time
+Linux-Version: 3.3.8
+Linux-Release: 1
+Linux-Kernel-Arch: mips
+Target-Description:
+	Build firmware images for Ralink Soc Boards
+@@
+Default-Packages: base-files libc libgcc busybox dropbear mtd uci opkg hotplug2 netifd dnsmasq iptables ppp ppp-mod-pppoe kmod-ipt-nathelper firewall ralink-wifi ralink-utils wireless-tools maccalc gpioctl kmod-gpio-dev kmod-leds-gpio kmod-ledtrig-gpio kmod-ledtrig-timer kmod-ledtrig-netdev kmod-gpio-button-hotplug kmod-input-gpio-keys-polled 
+Target: ralink/mt7620
+Target-Board: ralink
+Target-Name: MT7620 based boards
+Target-Path: target/linux/ralink
+Target-Arch: mipsel
+Target-Arch-Packages: ralink
+Target-Features: gpio pci squashfs usb
+Target-Depends: 
+Target-Optimization: -Os -pipe -mips32r2 -mtune=mips32r2 -funit-at-a-time
+Linux-Version: 3.3.8
+Linux-Release: 1
+Linux-Kernel-Arch: mips
+Target-Description:
+	Build firmware images for Ralink Soc Boards
+@@
+Default-Packages: base-files libc libgcc busybox dropbear mtd uci opkg hotplug2 netifd dnsmasq iptables ppp ppp-mod-pppoe kmod-ipt-nathelper firewall ralink-wifi ralink-utils wireless-tools maccalc gpioctl kmod-gpio-dev kmod-leds-gpio kmod-ledtrig-gpio kmod-ledtrig-timer kmod-ledtrig-netdev kmod-gpio-button-hotplug kmod-input-gpio-keys-polled 
+Target-Profile: Default
+Target-Profile-Name: Default Profile
+Target-Profile-Packages: kmod-usb-core kmod-usb2 kmod-ledtrig-usbdev
+Target-Profile-Config: 
+
+@@
+Target-Profile-Description:
+	Default package set compatible with most boards.
+@@
+
+Target-Profile: PBX20
+Target-Profile-Name: PBX20-Board
+Target-Profile-Packages: kmod-usb-core kmod-usb2 kmod-ledtrig-usbdev
+Target-Profile-Config: 
+
+@@
+Target-Profile-Description:
+	Default package for PBX20 boards.
+@@
+
+

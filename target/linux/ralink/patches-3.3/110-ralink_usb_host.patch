@@ -1,0 +1,102 @@
+Index: linux-3.3.8.ralink/drivers/usb/Kconfig
+===================================================================
+--- linux-3.3.8.ralink/drivers/usb/Kconfig	(版本 21)
++++ linux-3.3.8.ralink/drivers/usb/Kconfig	(工作副本)
+@@ -55,6 +55,7 @@
+ 	# MIPS:
+ 	default y if MIPS_ALCHEMY
+ 	default y if MACH_JZ4740
++	default y if RT3XXX_EHCI_OHCI
+ 	# more:
+ 	default PCI
+ 
+@@ -68,6 +69,7 @@
+ 	default y if ARCH_AT91SAM9G45
+ 	default y if ARCH_MXC
+ 	default y if ARCH_OMAP3
++	default y if RT3XXX_EHCI_OHCI
+ 	default y if ARCH_CNS3XXX
+ 	default y if ARCH_VT8500
+ 	default y if PLAT_SPEAR
+@@ -86,7 +88,7 @@
+ # ARM SA1111 chips have a non-PCI based "OHCI-compatible" USB host interface.
+ config USB
+ 	tristate "Support for Host-side USB"
+-	depends on USB_ARCH_HAS_HCD
++#	depends on USB_ARCH_HAS_HCD
+ 	select NLS  # for UTF-8 strings
+ 	---help---
+ 	  Universal Serial Bus (USB) is a specification for a serial bus
+Index: linux-3.3.8.ralink/drivers/usb/host/ohci-hcd.c
+===================================================================
+--- linux-3.3.8.ralink/drivers/usb/host/ohci-hcd.c	(版本 21)
++++ linux-3.3.8.ralink/drivers/usb/host/ohci-hcd.c	(工作副本)
+@@ -1055,6 +1055,11 @@
+ #define PLATFORM_DRIVER		usb_hcd_pnx4008_driver
+ #endif
+ 
++#if defined (CONFIG_RT3XXX_OHCI) || defined (CONFIG_RT3XXX_OHCI_MODULE)
++#include "ohci-rt3xxx.c"
++#define PLATFORM_DRIVER     ohci_hcd_rt3xxx_driver
++#endif
++
+ #ifdef CONFIG_ARCH_DAVINCI_DA8XX
+ #include "ohci-da8xx.c"
+ #define PLATFORM_DRIVER		ohci_hcd_da8xx_driver
+Index: linux-3.3.8.ralink/drivers/usb/host/Kconfig
+===================================================================
+--- linux-3.3.8.ralink/drivers/usb/host/Kconfig	(版本 21)
++++ linux-3.3.8.ralink/drivers/usb/host/Kconfig	(工作副本)
+@@ -59,6 +59,11 @@
+ 	  To compile this driver as a module, choose M here: the
+ 	  module will be called ehci-hcd.
+ 
++config RT3XXX_EHCI
++	bool "Ralink EHCI HCD support"
++	depends on USB_EHCI_HCD
++	default y
++
+ config USB_EHCI_ROOT_HUB_TT
+ 	bool "Root Hub Transaction Translators"
+ 	depends on USB_EHCI_HCD
+@@ -296,6 +301,11 @@
+ 	  To compile this driver as a module, choose M here: the
+ 	  module will be called ohci-hcd.
+ 
++config RT3XXX_OHCI
++	bool "Ralink OHCI HCD support"
++	depends on USB_OHCI_HCD
++	default y
++	  
+ config USB_OHCI_HCD_OMAP1
+ 	bool "OHCI support for OMAP1/2 chips"
+ 	depends on USB_OHCI_HCD && (ARCH_OMAP1 || ARCH_OMAP2)
+Index: linux-3.3.8.ralink/drivers/usb/host/ehci-hcd.c
+===================================================================
+--- linux-3.3.8.ralink/drivers/usb/host/ehci-hcd.c	(版本 21)
++++ linux-3.3.8.ralink/drivers/usb/host/ehci-hcd.c	(工作副本)
+@@ -1276,6 +1276,11 @@
+ #define	PLATFORM_DRIVER		ehci_hcd_au1xxx_driver
+ #endif
+ 
++#if defined (CONFIG_RT3XXX_EHCI) || defined (CONFIG_RT3XXX_EHCI_MODULE)
++#include "ehci-rt3xxx.c"
++#define PLATFORM_DRIVER     rt3xxx_ehci_driver
++#endif
++
+ #ifdef CONFIG_USB_EHCI_HCD_OMAP
+ #include "ehci-omap.c"
+ #define        PLATFORM_DRIVER         ehci_hcd_omap_driver
+Index: linux-3.3.8.ralink/drivers/usb/Makefile
+===================================================================
+--- linux-3.3.8.ralink/drivers/usb/Makefile	(版本 21)
++++ linux-3.3.8.ralink/drivers/usb/Makefile	(工作副本)
+@@ -9,7 +9,7 @@
+ obj-$(CONFIG_USB_OTG_UTILS)	+= otg/
+ 
+ obj-$(CONFIG_USB_DWC3)		+= dwc3/
+-
++obj-$(CONFIG_DWC_OTG) 		+= dwc_otg/
+ obj-$(CONFIG_USB_MON)		+= mon/
+ 
+ obj-$(CONFIG_PCI)		+= host/

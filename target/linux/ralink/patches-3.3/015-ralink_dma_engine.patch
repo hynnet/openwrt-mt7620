@@ -1,0 +1,27 @@
+Index: linux-3.3.8.ralink/drivers/dma/Makefile
+===================================================================
+--- linux-3.3.8.ralink/drivers/dma/Makefile	(版本 21)
++++ linux-3.3.8.ralink/drivers/dma/Makefile	(工作副本)
+@@ -27,3 +27,4 @@
+ obj-$(CONFIG_PCH_DMA) += pch_dma.o
+ obj-$(CONFIG_AMBA_PL08X) += amba-pl08x.o
+ obj-$(CONFIG_EP93XX_DMA) += ep93xx_dma.o
++obj-$(CONFIG_RT_DMA) += rt_dma.o
+\ No newline at end of file
+Index: linux-3.3.8.ralink/drivers/dma/Kconfig
+===================================================================
+--- linux-3.3.8.ralink/drivers/dma/Kconfig	(版本 21)
++++ linux-3.3.8.ralink/drivers/dma/Kconfig	(工作副本)
+@@ -121,6 +121,12 @@
+ 	select ASYNC_TX_ENABLE_CHANNEL_SWITCH
+ 	---help---
+ 	  Enable support for the Marvell XOR engine.
++	  
++config RT_DMA
++	bool "Ralink DMA engine support"
++	select DMA_ENGINE
++	---help---
++	  Enable support for the Ralink DMA engine.
+ 
+ config MX3_IPU
+ 	bool "MX3x Image Processing Unit support"

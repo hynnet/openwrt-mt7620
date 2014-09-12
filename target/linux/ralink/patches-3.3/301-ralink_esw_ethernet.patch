@@ -1,0 +1,11 @@
+Index: linux-3.3.8.ralink/drivers/net/ethernet/Makefile
+===================================================================
+--- linux-3.3.8.ralink/drivers/net/ethernet/Makefile	(版本 30)
++++ linux-3.3.8.ralink/drivers/net/ethernet/Makefile	(工作副本)
+@@ -74,3 +74,5 @@
+ obj-$(CONFIG_NET_VENDOR_VIA) += via/
+ obj-$(CONFIG_NET_VENDOR_XILINX) += xilinx/
+ obj-$(CONFIG_NET_VENDOR_XIRCOM) += xircom/
++obj-$(CONFIG_RALINK_RDM) += rt_rdm/
++obj-$(CONFIG_RAETH) += raeth/
++obj-$(CONFIG_RTL8367) += rtl8367/

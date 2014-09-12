@@ -1,0 +1,275 @@
+--- linux-3.3.8/arch/mips/Kconfig.orig	2013-01-19 13:50:02.000000000 +0800
++++ linux-3.3.8/arch/mips/Kconfig	2013-01-19 14:34:21.529307444 +0800
+@@ -35,9 +35,199 @@
+ config ZONE_DMA
+ 	bool
+ 
++config RALINK_RT2880_MP
++	bool
++config RALINK_RT2880_SHUTTLE
++	bool
++config RALINK_RT3052_MP2
++	bool
++config RALINK_RT3352_MP
++	bool
++config RALINK_RT5350_MP
++	bool
++config RALINK_RT2883_MP
++	bool
++config RALINK_RT3883_MP
++	bool
++config RALINK_RT6855_MP
++	bool
++
+ choice
+ 	prompt "System type"
+-	default SGI_IP22
++	default RALINK_RT5350
++
++config RALINK_RT2880
++        bool "Ralink RT2880 board"
++	select DMA_NONCOHERENT
++	select IRQ_CPU
++	select HW_HAS_PCI
++	select SWAP_IO_SPACE
++	select SYS_HAS_CPU_MIPS32_R1
++	select SYS_SUPPORTS_LITTLE_ENDIAN
++	select BOOT_ELF32
++	select SYS_SUPPORTS_32BIT_KERNEL
++	select RALINK_RT2880_MP
++	select CSRC_R4K
++	select CEVT_R4K
++	select GENERIC_GPIO
++	select ARCH_REQUIRE_GPIOLIB
++	select MIPS_MACHINE
++
++
++        help
++         Ralink evaluation board based on RT2880
++
++config RALINK_RT2883
++        bool "Ralink RT2883 board"
++	select DMA_NONCOHERENT
++	select IRQ_CPU
++	select HW_HAS_PCI
++	select SWAP_IO_SPACE
++	select SYS_HAS_CPU_MIPS32_R1
++        select SYS_HAS_CPU_MIPS32_R2
++	select SYS_SUPPORTS_LITTLE_ENDIAN
++	select BOOT_ELF32
++	select SYS_SUPPORTS_32BIT_KERNEL
++	select RALINK_RT2883_MP
++	select CSRC_R4K
++	select CEVT_R4K
++	select GENERIC_GPIO
++	select ARCH_REQUIRE_GPIOLIB
++	select MIPS_MACHINE
++
++
++        help
++         Ralink evaluation board based on RT2883
++
++config RALINK_RT3052
++        bool "Ralink RT305x/RT3350 board"
++	select DMA_NONCOHERENT
++	select IRQ_CPU
++	select SWAP_IO_SPACE
++	select SYS_HAS_CPU_MIPS32_R1
++        select SYS_HAS_CPU_MIPS32_R2
++	select SYS_HAS_EARLY_PRINTK
++	select SYS_SUPPORTS_LITTLE_ENDIAN
++	select BOOT_ELF32
++	select SYS_SUPPORTS_32BIT_KERNEL
++	select DEBUG_INFO
++	select CSRC_R4K
++	select CEVT_R4K
++	select RALINK_RT3052_MP2 if !RALINK_RT3350
++	select GENERIC_GPIO
++	select ARCH_REQUIRE_GPIOLIB
++	select MIPS_MACHINE
++
++
++        help
++         Ralink evaluation board based on RT3052
++
++config RALINK_RT3352
++        bool "Ralink RT3352 board"
++	select DMA_NONCOHERENT
++	select IRQ_CPU
++	select SWAP_IO_SPACE
++	select SYS_HAS_CPU_MIPS32_R1
++        select SYS_HAS_CPU_MIPS32_R2
++	select SYS_SUPPORTS_LITTLE_ENDIAN
++	select BOOT_ELF32
++	select SYS_SUPPORTS_32BIT_KERNEL
++	select RALINK_RT3352_MP
++	select CSRC_R4K
++	select CEVT_R4K
++	select GENERIC_GPIO
++	select ARCH_REQUIRE_GPIOLIB
++	select MIPS_MACHINE
++
++
++        help
++         Ralink evaluation board based on RT3352
++
++config RALINK_RT5350
++	bool "Ralink RT5350 board"
++	select DMA_NONCOHERENT
++	select IRQ_CPU
++	select SWAP_IO_SPACE
++	select SYS_HAS_CPU_MIPS32_R1
++	select SYS_HAS_CPU_MIPS32_R2
++	select SYS_SUPPORTS_LITTLE_ENDIAN
++	select BOOT_ELF32
++	select SYS_SUPPORTS_32BIT_KERNEL
++	select RALINK_RT5350_MP
++	select CSRC_R4K
++	select CEVT_R4K
++	select GENERIC_GPIO
++	select ARCH_REQUIRE_GPIOLIB
++	select MIPS_MACHINE
++
++
++	help
++	 Ralink evaluation board based on RT5350
++
++config RALINK_RT3883
++        bool "Ralink RT3883 board"
++	select DMA_NONCOHERENT
++	select IRQ_CPU
++	select HW_HAS_PCI
++	select SWAP_IO_SPACE
++	select SYS_HAS_CPU_MIPS32_R1
++        select SYS_HAS_CPU_MIPS32_R2
++	select SYS_SUPPORTS_LITTLE_ENDIAN
++	select BOOT_ELF32
++	select SYS_SUPPORTS_32BIT_KERNEL
++	select RALINK_RT3883_MP
++	select CSRC_R4K
++	select CEVT_R4K
++	select GENERIC_GPIO
++	select ARCH_REQUIRE_GPIOLIB
++	select MIPS_MACHINE
++
++
++        help
++         Ralink evaluation board based on RT3883
++
++config RALINK_RT6855
++        bool "Ralink RT6855 board"
++	select DMA_NONCOHERENT
++	select IRQ_CPU
++	select HW_HAS_PCI
++	select SWAP_IO_SPACE
++	select SYS_HAS_CPU_MIPS32_R1
++        select SYS_HAS_CPU_MIPS32_R2
++	select SYS_SUPPORTS_LITTLE_ENDIAN
++	select BOOT_ELF32
++	select SYS_SUPPORTS_32BIT_KERNEL
++	select RALINK_RT6855_MP
++	select CSRC_R4K
++	select CEVT_R4K
++	select GENERIC_GPIO
++	select ARCH_REQUIRE_GPIOLIB
++	select MIPS_MACHINE
++
++
++        help
++         Ralink evaluation board based on RT6855
++
++config RALINK_MT7620
++        bool "Ralink MT7620 board"
++	select DMA_NONCOHERENT
++	select IRQ_CPU
++	select HW_HAS_PCI
++	select SWAP_IO_SPACE
++	select SYS_HAS_CPU_MIPS32_R1
++        select SYS_HAS_CPU_MIPS32_R2
++	select SYS_SUPPORTS_LITTLE_ENDIAN
++	select BOOT_ELF32
++	select SYS_SUPPORTS_32BIT_KERNEL
++	select CSRC_R4K
++	select CEVT_R4K
++	select GENERIC_GPIO
++	select ARCH_REQUIRE_GPIOLIB
++	select MIPS_MACHINE
++
++
++        help
++         Ralink evaluation board based on MT7620
+ 
+ config MIPS_ALCHEMY
+ 	bool "Alchemy processor based machines"
+@@ -830,9 +1020,14 @@
+ source "arch/mips/cavium-octeon/Kconfig"
+ source "arch/mips/loongson/Kconfig"
+ source "arch/mips/netlogic/Kconfig"
++source "arch/mips/ralink/Kconfig"
++#source "arch/mips/kprofile/Kconfig
+ 
+ endmenu
+ 
++config SERIAL_CONSOLE 
++	bool
++
+ config RWSEM_GENERIC_SPINLOCK
+ 	bool
+ 	default y
+@@ -862,7 +1057,7 @@
+ 
+ config GENERIC_CMOS_UPDATE
+ 	bool
+-	default y
++	default n
+ 
+ config SCHED_OMIT_FRAME_POINTER
+ 	bool
+@@ -1171,7 +1366,7 @@
+ 
+ config MIPS_L1_CACHE_SHIFT
+ 	int
+-	default "4" if MACH_DECSTATION || MIKROTIK_RB532 || PMC_MSP4200_EVAL
++	default "4" if MACH_DECSTATION || MIKROTIK_RB532 || PMC_MSP4200_EVAL || RALINK_RT3052 || RALINK_RT3352 || RALINK_RT5350 || RALINK_MT7620
+ 	default "6" if MIPS_CPU_SCACHE
+ 	default "7" if SGI_IP22 || SGI_IP27 || SGI_IP28 || SNI_RM || CPU_CAVIUM_OCTEON
+ 	default "5"
+@@ -2392,6 +2587,8 @@
+ 
+ source "drivers/pci/Kconfig"
+ 
++source "drivers/pci/pcie/Kconfig"
++
+ #
+ # ISA support is now enabled via select.  Too many systems still have the one
+ # or other ISA chip on the board that users don't know about so don't expect
+@@ -2517,11 +2714,11 @@
+ menu "Power management options"
+ 
+ config ARCH_HIBERNATION_POSSIBLE
+-	def_bool y
++	def_bool n
+ 	depends on SYS_SUPPORTS_HOTPLUG_CPU || !SMP
+ 
+ config ARCH_SUSPEND_POSSIBLE
+-	def_bool y
++	def_bool n
+ 	depends on SYS_SUPPORTS_HOTPLUG_CPU || !SMP
+ 
+ source "kernel/power/Kconfig"
+@@ -2543,3 +2740,5 @@
+ source "crypto/Kconfig"
+ 
+ source "lib/Kconfig"
++
++source "ralink/Kconfig"
+--- linux-3.3.8/arch/mips/Kbuild.platforms.orig	2013-01-19 17:31:58.077108215 +0800
++++ linux-3.3.8/arch/mips/Kbuild.platforms	2013-01-19 14:21:38.017296120 +0800
+@@ -30,6 +30,7 @@
+ platforms += txx9
+ platforms += vr41xx
+ platforms += wrppmc
++platforms += ralink
+ 
+ # include the platform specific files
+ include $(patsubst %, $(srctree)/arch/mips/%/Platform, $(platforms))

@@ -1,0 +1,17 @@
+Source-Makefile: package/ralink-wifi/Makefile
+Package: ralink-wifi
+Version: 1
+Depends: +libc +USE_EGLIBC:librt +USE_EGLIBC:libpthread 
+Menu-Depends: 
+Provides: 
+Section: ralink
+Category: Ralink
+Title: Ralink APSoC WiFi SoftAP driver
+Maintainer: OpenWrt Developers Team <openwrt-devel@openwrt.org>
+Source: 
+Type: ipkg
+Description: 	Ralink APSoC WiFi driver for DreamBox
+OpenWrt Developers Team <openwrt-devel@openwrt.org>
+@@
+
+

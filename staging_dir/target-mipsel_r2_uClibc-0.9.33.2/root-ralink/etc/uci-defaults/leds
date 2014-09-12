@@ -1,0 +1,74 @@
+#!/bin/sh
+
+. /lib/functions/uci-defaults.sh
+. /lib/ralink.sh
+
+set_usb_led() {
+	ucidef_set_led_usbdev "usb" "USB" "$1" "1-1"
+}
+
+set_wifi_led() {
+	ucidef_set_led_netdev "wifi_led" "wifi" "$1" "wlan0"
+}
+
+board=$(ralink_board_name)
+
+case $board in
+	3g-6200n)
+		set_wifi_led "edimax:amber:wlan"
+		set_usb_led "edimax:blue:3g"
+		;;
+	all0256n)
+		set_wifi_led "rt2800pci-phy0::radio"
+		;;
+	bc2)
+		set_usb_led "bc2:blue:usb"
+		;;
+	dir-300-b1|\
+	dir-600-b1|\
+	dir-600-b2)
+		# ANDed with vlan switch port 4 led state
+		ucidef_set_led_default "wan" "WAN LED (amber)" "d-link:amber:wan" "1"
+		;;
+	esr-9753)
+		set_wifi_led "rt2800pci-phy0::radio"
+		;;
+	f5d8235-v1)
+		set_usb_led "f5d8235-v1:blue:storage"
+		;;
+	f5d8235-v2)
+		set_usb_led "f5d8235v2:blue:storage"
+		;;
+	fonera20n)
+		set_usb_led "fonera20n:amber:usb"
+		;;
+	hw550-3g)
+		set_usb_led "hw550-3g:green:usb"
+		;;
+	mofi3500-3gn)
+		set_usb_led "mofi3500-3gn:green:usb"
+		;;
+	nw718)
+		set_usb_led "nw718:amber:usb"
+		;;
+	sl-r7205)
+		set_wifi_led "rt2800pci-phy0::radio"
+		;;
+	v11st-fe)
+		set_wifi_led "rt2800pci-phy0::radio"
+		;;
+	w306r-v20)
+		set_wifi_led "rt2800pci-phy0::radio"
+		;;
+	w502u)
+		set_usb_led "alfa:blue:usb"
+		set_wifi_led "rt2800pci-phy0::radio"
+		;;
+	wcr-150gn)
+		set_usb_led "wcr150gn:amber:user"
+		;;
+esac
+
+ucidef_commit_leds
+
+exit 0

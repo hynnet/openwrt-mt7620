@@ -1,0 +1,50 @@
+Source-Makefile: package/libubox/Makefile
+Package: libubox
+Version: 2013-01-29-0bc317aa4d9af44806c28ca286d79a8b5a92b2b8
+Depends: +libc +USE_EGLIBC:librt +USE_EGLIBC:libpthread 
+Menu-Depends: 
+Provides: 
+Build-Depends: lua
+Section: libs
+Category: Libraries
+Title: Basic utility library
+Maintainer: OpenWrt Developers Team <openwrt-devel@openwrt.org>
+Source: libubox-2013-01-29-0bc317aa4d9af44806c28ca286d79a8b5a92b2b8.tar.gz
+Type: ipkg
+Description: Basic utility library
+OpenWrt Developers Team <openwrt-devel@openwrt.org>
+@@
+
+Package: libblobmsg-json
+Version: 2013-01-29-0bc317aa4d9af44806c28ca286d79a8b5a92b2b8
+Depends: +libc +USE_EGLIBC:librt +USE_EGLIBC:libpthread +libjson +libubox
+Menu-Depends: 
+Provides: 
+Build-Depends: lua
+Section: libs
+Category: Libraries
+Title: blobmsg <-> json conversion library
+Maintainer: OpenWrt Developers Team <openwrt-devel@openwrt.org>
+Source: libubox-2013-01-29-0bc317aa4d9af44806c28ca286d79a8b5a92b2b8.tar.gz
+Type: ipkg
+Description: blobmsg <-> json conversion library
+OpenWrt Developers Team <openwrt-devel@openwrt.org>
+@@
+
+Package: jshn
+Version: 2013-01-29-0bc317aa4d9af44806c28ca286d79a8b5a92b2b8
+Depends: +libc +USE_EGLIBC:librt +USE_EGLIBC:libpthread +libjson
+Menu-Depends: 
+Provides: 
+Build-Depends: lua
+Section: utils
+Category: Utilities
+Title: JSON SHell Notation
+Maintainer: OpenWrt Developers Team <openwrt-devel@openwrt.org>
+Source: libubox-2013-01-29-0bc317aa4d9af44806c28ca286d79a8b5a92b2b8.tar.gz
+Type: ipkg
+Description:   Library for parsing and generating JSON from shell scripts
+OpenWrt Developers Team <openwrt-devel@openwrt.org>
+@@
+
+

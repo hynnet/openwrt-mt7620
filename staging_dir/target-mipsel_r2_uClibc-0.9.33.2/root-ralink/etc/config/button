@@ -1,0 +1,22 @@
+# Copyright (C) 2012 Lintel
+
+config button
+        option button   reset
+        option action   released
+        option handler  "firstboot && reboot"
+        option min              1
+        option max              5
+
+config button
+        option button   wlan
+        option action   pressed
+        option handler  "wifitoggle"
+        option min              1
+        option max              5
+
+config button
+        option button   wps
+        option action   released
+        option handler  ""
+        option min              1
+        option max             30

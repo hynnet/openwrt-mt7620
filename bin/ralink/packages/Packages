@@ -1,0 +1,1305 @@
+Package: base-files
+Version: 117-unknown
+Depends: libc, netifd
+Provides: 
+Source: package/base-files
+Section: base
+Status: unknown ok not-installed
+Essential: no
+Priority: optional
+Maintainer: OpenWrt Developers Team <openwrt-devel@openwrt.org>
+Architecture: ralink
+Installed-Size: 33823
+Filename: base-files_117-unknown_ralink.ipk
+Size: 34679
+MD5Sum: d0306447618510e54d5d244589764806
+Description:  This package contains a base filesystem and system scripts for OpenWrt.
+
+Package: busybox
+Version: 1.19.4-6
+Depends: libc
+Provides: 
+Source: package/busybox
+Section: base
+Status: unknown ok not-installed
+Essential: yes
+Priority: optional
+Maintainer: Nicolas Thill <nico@openwrt.org>
+Architecture: ralink
+Installed-Size: 243094
+Filename: busybox_1.19.4-6_ralink.ipk
+Size: 243115
+MD5Sum: 5d7eceaa4dc5b892fb002992109f2159
+Description:  The Swiss Army Knife of embedded Linux.
+ It slices, it dices, it makes Julian Fries.
+
+Package: dnsmasq
+Version: 2.62-2
+Depends: libc
+Provides: 
+Source: package/dnsmasq
+Section: net
+Status: unknown ok not-installed
+Essential: no
+Priority: optional
+Maintainer: OpenWrt Developers Team <openwrt-devel@openwrt.org>
+Architecture: ralink
+Installed-Size: 86499
+Filename: dnsmasq_2.62-2_ralink.ipk
+Size: 87024
+MD5Sum: 871a3a3e7df4f276b29ff403f5918c60
+Description:  It is intended to provide coupled DNS and DHCP service to a LAN.
+
+Package: dropbear
+Version: 2011.54-2
+Depends: libc
+Provides: 
+Source: package/dropbear
+Section: net
+Status: unknown ok not-installed
+Essential: no
+Priority: optional
+Maintainer: OpenWrt Developers Team <openwrt-devel@openwrt.org>
+Architecture: ralink
+Installed-Size: 79920
+Filename: dropbear_2011.54-2_ralink.ipk
+Size: 80539
+MD5Sum: e2b524520b3df0416c513739081edd7d
+Description:  A small SSH2 server/client designed for small memory environments.
+
+Package: firewall
+Version: 2-55.1
+Depends: libc, iptables, kmod-ipt-conntrack, kmod-ipt-nat
+Provides: 
+Source: package/firewall
+Section: net
+Status: unknown ok not-installed
+Essential: no
+Priority: optional
+Maintainer: Jo-Philipp Wich <xm@subsignal.org>
+Architecture: all
+Installed-Size: 12978
+Filename: firewall_2-55.1_all.ipk
+Size: 13643
+MD5Sum: ff6a0d275c87946de7f434fc446e45a8
+Description:  UCI based firewall for OpenWrt
+
+Package: gpioctl
+Version: 1.0-1
+Depends: libc
+Provides: 
+Source: package/gpioctl
+Section: utils
+Status: unknown ok not-installed
+Essential: no
+Priority: optional
+Maintainer: OpenWrt Developers Team <openwrt-devel@openwrt.org>
+Architecture: ralink
+Installed-Size: 1572
+Filename: gpioctl_1.0-1_ralink.ipk
+Size: 2179
+MD5Sum: 769bab0e6cdc5d7a9647a92309b64ff5
+Description:  Tool for controlling gpio pins
+
+Package: hotplug2
+Version: 1.0-beta-4
+Depends: libc
+Provides: 
+Source: package/hotplug2
+Section: base
+Status: unknown ok not-installed
+Essential: no
+Priority: optional
+Maintainer: OpenWrt Developers Team <openwrt-devel@openwrt.org>
+Architecture: ralink
+Installed-Size: 14746
+Filename: hotplug2_1.0-beta-4_ralink.ipk
+Size: 15401
+MD5Sum: 7d2d4c374eb038b0ccec2e70f5c8526c
+Description:  Hotplug2 is a trivial replacement of some of the UDev functionality
+ in a tiny pack, intended for Linux early userspace: Init RAM FS and InitRD.
+ This is an implementation of Hotplug2-1.0-beta
+
+Package: iptables
+Version: 1.4.10-4
+Depends: libc, kmod-ipt-core, libip4tc, libxtables
+Provides: 
+Source: package/iptables
+Section: net
+Status: unknown ok not-installed
+Essential: no
+Priority: optional
+Maintainer: OpenWrt Developers Team <openwrt-devel@openwrt.org>
+Architecture: ralink
+Installed-Size: 36128
+Filename: iptables_1.4.10-4_ralink.ipk
+Size: 36855
+MD5Sum: 7c09678dc8e5489322b25e8d5964d4f0
+Description:  IPv4 firewall administration tool.
+ 
+ Matches:
+ - icmp
+ - tcp
+ - udp
+ - comment
+ - limit
+ - mac
+ - multiport
+ 
+ Targets:
+ - ACCEPT
+ - DROP
+ - REJECT
+ - LOG
+ - TCPMSS
+ 
+ Tables:
+ - filter
+ - mangle
+ 
+
+Package: jshn
+Version: 2013-01-29-0bc317aa4d9af44806c28ca286d79a8b5a92b2b8
+Depends: libc, libjson
+Provides: 
+Source: package/libubox
+Section: utils
+Status: unknown ok not-installed
+Essential: no
+Priority: optional
+Maintainer: OpenWrt Developers Team <openwrt-devel@openwrt.org>
+Architecture: ralink
+Installed-Size: 4960
+Filename: jshn_2013-01-29-0bc317aa4d9af44806c28ca286d79a8b5a92b2b8_ralink.ipk
+Size: 5614
+MD5Sum: bb3a1f7db2b6bca01e0cac431a4b1546
+Description:  Library for parsing and generating JSON from shell scripts
+
+Package: kmod-button-hotplug
+Version: 3.3.8-3
+Depends: kernel (=3.3.8-1-08a144b962f3c8638bae39b8658a8187)
+Provides: 
+Source: package/button-hotplug
+Section: kernel
+Status: unknown ok not-installed
+Essential: no
+Priority: optional
+Maintainer: OpenWrt Developers Team <openwrt-devel@openwrt.org>
+Architecture: ralink
+Installed-Size: 2889
+Filename: kmod-button-hotplug_3.3.8-3_ralink.ipk
+Size: 3630
+MD5Sum: b4938abfd3fde3e8160d9f46e9528d48
+Description:  Kernel module to generate button hotplug events
+
+Package: kmod-gpio-dev
+Version: 3.3.8-1
+Depends: kernel (=3.3.8-1-08a144b962f3c8638bae39b8658a8187)
+Provides: 
+Source: package/kernel
+Section: kernel
+Status: unknown hold not-installed
+Essential: no
+Priority: optional
+Maintainer: OpenWrt Developers Team <openwrt-devel@openwrt.org>
+Architecture: ralink
+Installed-Size: 1900
+Filename: kmod-gpio-dev_3.3.8-1_ralink.ipk
+Size: 2696
+MD5Sum: e8012f4acfa6bbcba1332c65ebad9b76
+Description:  Kernel module to allows control of GPIO pins using a character device.
+
+Package: kmod-input-core
+Version: 3.3.8-1
+Depends: kernel (=3.3.8-1-08a144b962f3c8638bae39b8658a8187)
+Provides: 
+Source: package/kernel
+Section: kernel
+Status: unknown hold not-installed
+Essential: no
+Priority: optional
+Maintainer: OpenWrt Developers Team <openwrt-devel@openwrt.org>
+Architecture: ralink
+Installed-Size: 14301
+Filename: kmod-input-core_3.3.8-1_ralink.ipk
+Size: 15035
+MD5Sum: 1f8b8952388cdc6e4953f00407143fd7
+Description:  Kernel modules for support of input device
+
+Package: kmod-input-gpio-keys-polled
+Version: 3.3.8-1
+Depends: kernel (=3.3.8-1-08a144b962f3c8638bae39b8658a8187), kmod-input-polldev, kmod-input-core
+Provides: 
+Source: package/kernel
+Section: kernel
+Status: unknown hold not-installed
+Essential: no
+Priority: optional
+Maintainer: OpenWrt Developers Team <openwrt-devel@openwrt.org>
+Architecture: ralink
+Installed-Size: 2487
+Filename: kmod-input-gpio-keys-polled_3.3.8-1_ralink.ipk
+Size: 3250
+MD5Sum: fd881c6a5e8560359515e96b1207f74a
+Description:  Kernel module for support polled GPIO keys input device
+
+Package: kmod-input-polldev
+Version: 3.3.8-1
+Depends: kernel (=3.3.8-1-08a144b962f3c8638bae39b8658a8187), kmod-input-core
+Provides: 
+Source: package/kernel
+Section: kernel
+Status: unknown hold not-installed
+Essential: no
+Priority: optional
+Maintainer: OpenWrt Developers Team <openwrt-devel@openwrt.org>
+Architecture: ralink
+Installed-Size: 2026
+Filename: kmod-input-polldev_3.3.8-1_ralink.ipk
+Size: 2817
+MD5Sum: e27a88bd741ccc76458dba3ff00de3f3
+Description:  Kernel module for support of polled input devices
+
+Package: kmod-ipt-conntrack
+Version: 3.3.8-1
+Depends: kernel (=3.3.8-1-08a144b962f3c8638bae39b8658a8187), kmod-ipt-core
+Provides: 
+Source: package/kernel
+Section: kernel
+Status: unknown hold not-installed
+Essential: no
+Priority: optional
+Maintainer: OpenWrt Developers Team <openwrt-devel@openwrt.org>
+Architecture: ralink
+Installed-Size: 34717
+Filename: kmod-ipt-conntrack_3.3.8-1_ralink.ipk
+Size: 35539
+MD5Sum: c1f00ef69f2771b71fd038efe5456c45
+Description:  Netfilter (IPv4) kernel modules for connection tracking
+ Includes:
+ - conntrack
+ - defrag
+ - iptables_raw
+ - NOTRACK
+ - state
+
+Package: kmod-ipt-core
+Version: 3.3.8-1
+Depends: kernel (=3.3.8-1-08a144b962f3c8638bae39b8658a8187)
+Provides: 
+Source: package/kernel
+Section: kernel
+Status: unknown hold not-installed
+Essential: no
+Priority: optional
+Maintainer: OpenWrt Developers Team <openwrt-devel@openwrt.org>
+Architecture: ralink
+Installed-Size: 25991
+Filename: kmod-ipt-core_3.3.8-1_ralink.ipk
+Size: 26757
+MD5Sum: 5a7faeb8c45bf3fdfeba7694fd5890a3
+Description:  Netfilter core kernel modules
+ Includes:
+ - comment
+ - limit
+ - LOG
+ - mac
+ - multiport
+ - REJECT
+ - TCPMSS
+
+Package: kmod-ipt-nat
+Version: 3.3.8-1
+Depends: kernel (=3.3.8-1-08a144b962f3c8638bae39b8658a8187), kmod-ipt-core, kmod-ipt-conntrack
+Provides: 
+Source: package/kernel
+Section: kernel
+Status: unknown hold not-installed
+Essential: no
+Priority: optional
+Maintainer: OpenWrt Developers Team <openwrt-devel@openwrt.org>
+Architecture: ralink
+Installed-Size: 10280
+Filename: kmod-ipt-nat_3.3.8-1_ralink.ipk
+Size: 11064
+MD5Sum: 62c60566b81f1769da60024e8405917d
+Description:  Netfilter (IPv4) kernel modules for basic NAT targets
+ Includes:
+ - MASQUERADE
+
+Package: kmod-ipt-nathelper
+Version: 3.3.8-1
+Depends: kernel (=3.3.8-1-08a144b962f3c8638bae39b8658a8187), kmod-ipt-core, kmod-ipt-nat
+Provides: 
+Source: package/kernel
+Section: kernel
+Status: unknown hold not-installed
+Essential: no
+Priority: optional
+Maintainer: OpenWrt Developers Team <openwrt-devel@openwrt.org>
+Architecture: ralink
+Installed-Size: 7538
+Filename: kmod-ipt-nathelper_3.3.8-1_ralink.ipk
+Size: 8380
+MD5Sum: f556f0eee81246a465343fe79b445a28
+Description:  Default Netfilter (IPv4) Conntrack and NAT helpers
+ Includes:
+ - ftp
+ - irc
+ - tftp
+
+Package: kmod-leds-gpio
+Version: 3.3.8-1
+Depends: kernel (=3.3.8-1-08a144b962f3c8638bae39b8658a8187)
+Provides: 
+Source: package/kernel
+Section: kernel
+Status: unknown hold not-installed
+Essential: no
+Priority: optional
+Maintainer: OpenWrt Developers Team <openwrt-devel@openwrt.org>
+Architecture: ralink
+Installed-Size: 2069
+Filename: kmod-leds-gpio_3.3.8-1_ralink.ipk
+Size: 2842
+MD5Sum: 40563289944c7201edfbeab4335c2727
+Description:  Kernel module for LEDs on GPIO lines
+
+Package: kmod-ledtrig-default-on
+Version: 3.3.8-1
+Depends: kernel (=3.3.8-1-08a144b962f3c8638bae39b8658a8187)
+Provides: 
+Source: package/kernel
+Section: kernel
+Status: unknown hold not-installed
+Essential: no
+Priority: optional
+Maintainer: OpenWrt Developers Team <openwrt-devel@openwrt.org>
+Architecture: ralink
+Installed-Size: 105
+Filename: kmod-ledtrig-default-on_3.3.8-1_ralink.ipk
+Size: 763
+MD5Sum: 3b607412fbe4a5ae62a09a7db51c9aef
+Description:  Kernel module that allows LEDs to be initialised in the ON state.
+
+Package: kmod-ledtrig-gpio
+Version: 3.3.8-1
+Depends: kernel (=3.3.8-1-08a144b962f3c8638bae39b8658a8187)
+Provides: 
+Source: package/kernel
+Section: kernel
+Status: unknown hold not-installed
+Essential: no
+Priority: optional
+Maintainer: OpenWrt Developers Team <openwrt-devel@openwrt.org>
+Architecture: ralink
+Installed-Size: 2321
+Filename: kmod-ledtrig-gpio_3.3.8-1_ralink.ipk
+Size: 3074
+MD5Sum: c2344bb756baa37eee61d3ffa91090ff
+Description:  Kernel module that allows LEDs to be controlled by gpio events.
+
+Package: kmod-ledtrig-heartbeat
+Version: 3.3.8-1
+Depends: kernel (=3.3.8-1-08a144b962f3c8638bae39b8658a8187)
+Provides: 
+Source: package/kernel
+Section: kernel
+Status: unknown hold not-installed
+Essential: no
+Priority: optional
+Maintainer: OpenWrt Developers Team <openwrt-devel@openwrt.org>
+Architecture: ralink
+Installed-Size: 1385
+Filename: kmod-ledtrig-heartbeat_3.3.8-1_ralink.ipk
+Size: 2156
+MD5Sum: 1993bc1d0fa406c0bf355007bf484883
+Description:  LED Heartbeat Trigger
+
+Package: kmod-ledtrig-morse
+Version: 3.3.8-1
+Depends: kernel (=3.3.8-1-08a144b962f3c8638bae39b8658a8187)
+Provides: 
+Source: package/kernel
+Section: kernel
+Status: unknown hold not-installed
+Essential: no
+Priority: optional
+Maintainer: OpenWrt Developers Team <openwrt-devel@openwrt.org>
+Architecture: ralink
+Installed-Size: 2205
+Filename: kmod-ledtrig-morse_3.3.8-1_ralink.ipk
+Size: 2994
+MD5Sum: 6677dcfbb7549878e0931ba23875ea37
+Description:  Kernel module to show morse coded messages on LEDs.
+
+Package: kmod-ledtrig-netdev
+Version: 3.3.8-1
+Depends: kernel (=3.3.8-1-08a144b962f3c8638bae39b8658a8187)
+Provides: 
+Source: package/kernel
+Section: kernel
+Status: unknown hold not-installed
+Essential: no
+Priority: optional
+Maintainer: OpenWrt Developers Team <openwrt-devel@openwrt.org>
+Architecture: ralink
+Installed-Size: 104
+Filename: kmod-ledtrig-netdev_3.3.8-1_ralink.ipk
+Size: 752
+MD5Sum: 7944e3b1eae1b0a0edc54f31d91de755
+Description:  Kernel module to drive LEDs based on network activity.
+
+Package: kmod-ledtrig-netfilter
+Version: 3.3.8-1
+Depends: kernel (=3.3.8-1-08a144b962f3c8638bae39b8658a8187), kmod-ipt-core
+Provides: 
+Source: package/kernel
+Section: kernel
+Status: unknown hold not-installed
+Essential: no
+Priority: optional
+Maintainer: OpenWrt Developers Team <openwrt-devel@openwrt.org>
+Architecture: ralink
+Installed-Size: 1975
+Filename: kmod-ledtrig-netfilter_3.3.8-1_ralink.ipk
+Size: 2933
+MD5Sum: 50b80d8d16d9af567f9633e50224458c
+Description:  Kernel module to flash LED when a particular packets passing through your machine.
+ 
+ For example to create an LED trigger for incoming SSH traffic:
+ iptables -A INPUT -p tcp --dport 22 -j LED --led-trigger-id ssh --led-delay 1000
+ Then attach the new trigger to an LED on your system:
+ echo netfilter-ssh > /sys/class/leds/<ledname>/trigger
+
+Package: kmod-ledtrig-timer
+Version: 3.3.8-1
+Depends: kernel (=3.3.8-1-08a144b962f3c8638bae39b8658a8187)
+Provides: 
+Source: package/kernel
+Section: kernel
+Status: unknown hold not-installed
+Essential: no
+Priority: optional
+Maintainer: OpenWrt Developers Team <openwrt-devel@openwrt.org>
+Architecture: ralink
+Installed-Size: 105
+Filename: kmod-ledtrig-timer_3.3.8-1_ralink.ipk
+Size: 770
+MD5Sum: bdbc15b489cbaea78b32bbe87270480f
+Description:  Kernel module that allows LEDs to be controlled by a programmable timer
+ via sysfs.
+
+Package: kmod-ledtrig-usbdev
+Version: 3.3.8-1
+Depends: kernel (=3.3.8-1-08a144b962f3c8638bae39b8658a8187), kmod-usb-core
+Provides: 
+Source: package/kernel
+Section: kernel
+Status: unknown hold not-installed
+Essential: no
+Priority: optional
+Maintainer: OpenWrt Developers Team <openwrt-devel@openwrt.org>
+Architecture: ralink
+Installed-Size: 2329
+Filename: kmod-ledtrig-usbdev_3.3.8-1_ralink.ipk
+Size: 3102
+MD5Sum: 124090bc6d6562d95049f5a9eae1cdce
+Description:  Kernel module to drive LEDs based on USB device presence/activity.
+
+Package: kmod-lib-crc-ccitt
+Version: 3.3.8-1
+Depends: kernel (=3.3.8-1-08a144b962f3c8638bae39b8658a8187)
+Provides: 
+Source: package/kernel
+Section: kernel
+Status: unknown hold not-installed
+Essential: no
+Priority: optional
+Maintainer: OpenWrt Developers Team <openwrt-devel@openwrt.org>
+Architecture: ralink
+Installed-Size: 1385
+Filename: kmod-lib-crc-ccitt_3.3.8-1_ralink.ipk
+Size: 2152
+MD5Sum: ca0805c22323a5ecdb0ed099c5ba8c94
+Description:  Kernel module for CRC-CCITT support
+
+Package: kmod-nls-base
+Version: 3.3.8-1
+Depends: kernel (=3.3.8-1-08a144b962f3c8638bae39b8658a8187)
+Provides: 
+Source: package/kernel
+Section: kernel
+Status: unknown hold not-installed
+Essential: no
+Priority: optional
+Maintainer: OpenWrt Developers Team <openwrt-devel@openwrt.org>
+Architecture: ralink
+Installed-Size: 3190
+Filename: kmod-nls-base_3.3.8-1_ralink.ipk
+Size: 3956
+MD5Sum: 8e3a0891ad2450be1abe277e4ee1580c
+Description:  Kernel module for NLS (Native Language Support)
+
+Package: kmod-ppp
+Version: 3.3.8-1
+Depends: kernel (=3.3.8-1-08a144b962f3c8638bae39b8658a8187), kmod-lib-crc-ccitt
+Provides: 
+Source: package/kernel
+Section: kernel
+Status: unknown hold not-installed
+Essential: no
+Priority: optional
+Maintainer: OpenWrt Developers Team <openwrt-devel@openwrt.org>
+Architecture: ralink
+Installed-Size: 23345
+Filename: kmod-ppp_3.3.8-1_ralink.ipk
+Size: 24101
+MD5Sum: d5489ab50d724e1bcea0736c217c8986
+Description:  Kernel modules for PPP support
+
+Package: kmod-pppoe
+Version: 3.3.8-1
+Depends: kernel (=3.3.8-1-08a144b962f3c8638bae39b8658a8187), kmod-ppp, kmod-pppox
+Provides: 
+Source: package/kernel
+Section: kernel
+Status: unknown hold not-installed
+Essential: no
+Priority: optional
+Maintainer: OpenWrt Developers Team <openwrt-devel@openwrt.org>
+Architecture: ralink
+Installed-Size: 6441
+Filename: kmod-pppoe_3.3.8-1_ralink.ipk
+Size: 7255
+MD5Sum: e2a72b469027b0108b239165c4969fc9
+Description:  Kernel module for PPPoE (PPP over Ethernet) support
+
+Package: kmod-pppox
+Version: 3.3.8-1
+Depends: kernel (=3.3.8-1-08a144b962f3c8638bae39b8658a8187), kmod-ppp
+Provides: 
+Source: package/kernel
+Section: kernel
+Status: unknown hold not-installed
+Essential: no
+Priority: optional
+Maintainer: OpenWrt Developers Team <openwrt-devel@openwrt.org>
+Architecture: ralink
+Installed-Size: 1712
+Filename: kmod-pppox_3.3.8-1_ralink.ipk
+Size: 2495
+MD5Sum: 8fe0ce59b7b84aedf29746e0608645c5
+Description:  Kernel helper module for PPPoE and PPTP support
+
+Package: kmod-scsi-core
+Version: 3.3.8-1
+Depends: kernel (=3.3.8-1-08a144b962f3c8638bae39b8658a8187)
+Provides: 
+Source: package/kernel
+Section: kernel
+Status: unknown hold not-installed
+Essential: no
+Priority: optional
+Maintainer: OpenWrt Developers Team <openwrt-devel@openwrt.org>
+Architecture: ralink
+Installed-Size: 68042
+Filename: kmod-scsi-core_3.3.8-1_ralink.ipk
+Size: 68487
+MD5Sum: cd4ee63747eef3dcd99dded8f8179dd9
+Description:  SCSI device support
+
+Package: kmod-usb-core
+Version: 3.3.8-1
+Depends: kernel (=3.3.8-1-08a144b962f3c8638bae39b8658a8187), kmod-nls-base
+Provides: 
+Source: package/kernel
+Section: kernel
+Status: unknown hold not-installed
+Essential: no
+Priority: optional
+Maintainer: OpenWrt Developers Team <openwrt-devel@openwrt.org>
+Architecture: ralink
+Installed-Size: 70294
+Filename: kmod-usb-core_3.3.8-1_ralink.ipk
+Size: 70805
+MD5Sum: 0dff99d3c6a7972b7d0f754015ff0978
+Description:  Kernel support for USB
+
+Package: kmod-usb-ohci
+Version: 3.3.8-1
+Depends: kernel (=3.3.8-1-08a144b962f3c8638bae39b8658a8187), kmod-usb-core
+Provides: 
+Source: package/kernel
+Section: kernel
+Status: unknown hold not-installed
+Essential: no
+Priority: optional
+Maintainer: OpenWrt Developers Team <openwrt-devel@openwrt.org>
+Architecture: ralink
+Installed-Size: 12382
+Filename: kmod-usb-ohci_3.3.8-1_ralink.ipk
+Size: 13122
+MD5Sum: 68a7e913bad09d08716aae10728f45a0
+Description:  Kernel support for USB OHCI controllers
+
+Package: kmod-usb-printer
+Version: 3.3.8-1
+Depends: kernel (=3.3.8-1-08a144b962f3c8638bae39b8658a8187), kmod-usb-core
+Provides: 
+Source: package/kernel
+Section: kernel
+Status: unknown hold not-installed
+Essential: no
+Priority: optional
+Maintainer: OpenWrt Developers Team <openwrt-devel@openwrt.org>
+Architecture: ralink
+Installed-Size: 7017
+Filename: kmod-usb-printer_3.3.8-1_ralink.ipk
+Size: 7831
+MD5Sum: 07654574ac6110dcb7c6e211d171bb6b
+Description:  Kernel support for USB printers
+
+Package: kmod-usb-storage
+Version: 3.3.8-1
+Depends: kernel (=3.3.8-1-08a144b962f3c8638bae39b8658a8187), kmod-scsi-core, kmod-usb-core
+Provides: 
+Source: package/kernel
+Section: kernel
+Status: unknown hold not-installed
+Essential: no
+Priority: optional
+Maintainer: OpenWrt Developers Team <openwrt-devel@openwrt.org>
+Architecture: ralink
+Installed-Size: 23114
+Filename: kmod-usb-storage_3.3.8-1_ralink.ipk
+Size: 23490
+MD5Sum: 1fa78a133775c44b07d5967b3b5f3939
+Description:  Kernel support for USB Mass Storage devices
+
+Package: kmod-usb2
+Version: 3.3.8-1
+Depends: kernel (=3.3.8-1-08a144b962f3c8638bae39b8658a8187), kmod-usb-core
+Provides: 
+Source: package/kernel
+Section: kernel
+Status: unknown hold not-installed
+Essential: no
+Priority: optional
+Maintainer: OpenWrt Developers Team <openwrt-devel@openwrt.org>
+Architecture: ralink
+Installed-Size: 24589
+Filename: kmod-usb2_3.3.8-1_ralink.ipk
+Size: 25258
+MD5Sum: b2d6be265674131da213a4dadae57867
+Description:  Kernel support for USB2 (EHCI) controllers
+
+Package: libblobmsg-json
+Version: 2013-01-29-0bc317aa4d9af44806c28ca286d79a8b5a92b2b8
+Depends: libc, libjson, libubox
+Provides: 
+Source: package/libubox
+Section: libs
+Status: unknown ok not-installed
+Essential: no
+Priority: optional
+Maintainer: OpenWrt Developers Team <openwrt-devel@openwrt.org>
+Architecture: ralink
+Installed-Size: 3506
+Filename: libblobmsg-json_2013-01-29-0bc317aa4d9af44806c28ca286d79a8b5a92b2b8_ralink.ipk
+Size: 4177
+MD5Sum: 53fe2ba24591283a7e879472c5567637
+Description:  blobmsg <-> json conversion library
+
+Package: libevent2
+Version: 2.0.19-1
+Depends: libc
+Provides: 
+Source: feeds/packages/libs/libevent2
+Section: libs
+Status: unknown ok not-installed
+Essential: no
+Priority: optional
+Maintainer: OpenWrt Developers Team <openwrt-devel@openwrt.org>
+Architecture: ralink
+Installed-Size: 99093
+Filename: libevent2_2.0.19-1_ralink.ipk
+Size: 100004
+MD5Sum: 5bb3832909768fb0824ebe48613671a4
+Description:  The libevent API provides a mechanism to execute a callback function
+ when a specific event occurs on a file descriptor or after a timeout
+ has been reached. Furthermore, libevent also support callbacks due
+ to signals or regular timeouts.
+ 
+ libevent is meant to replace the event loop found in event driven
+ network servers. An application just needs to call event_dispatch()
+ and then add or remove events dynamically without having to change
+ the event loop.
+ 
+ This package contains the libevent shared library historically
+ containing both the core & extra libraries.
+
+Package: libffi
+Version: 3.0.10-1
+Depends: libc
+Provides: 
+Source: feeds/packages/libs/libffi
+Section: libs
+Status: unknown ok not-installed
+Essential: no
+Priority: optional
+Maintainer: OpenWrt Developers Team <openwrt-devel@openwrt.org>
+Architecture: ralink
+Installed-Size: 5170
+Filename: libffi_3.0.10-1_ralink.ipk
+Size: 6044
+MD5Sum: 8e230ec58b13e2370be3be662c6c8d5e
+Description:  The libffi library provides a portable, high level programming interface to
+ various calling conventions. This allows a programmer to call any function
+ specified by a call interface description at run-time.
+ 
+ FFI stands for Foreign Function Interface. A foreign function interface is the
+ popular name for the interface that allows code written in one language to call
+ code written in another language. The libffi library really only provides the
+ lowest, machine dependent layer of a fully featured foreign function interface.
+ A layer must exist above libffi that handles type conversions for values passed
+ between the two languages.
+
+Package: libgcc
+Version: 4.6-linaro-1
+Depends: 
+Provides: 
+Source: package/toolchain
+Section: libs
+Status: unknown hold not-installed
+Essential: yes
+Priority: optional
+Maintainer: OpenWrt Developers Team <openwrt-devel@openwrt.org>
+Architecture: ralink
+Installed-Size: 30582
+Filename: libgcc_4.6-linaro-1_ralink.ipk
+Size: 31111
+MD5Sum: 2e54b244aeece37d9945d5940f8c41b3
+Description:  GCC support library
+
+Package: libip4tc
+Version: 1.4.10-4
+Depends: libc
+Provides: 
+Source: package/iptables
+Section: libs
+Status: unknown ok not-installed
+Essential: no
+Priority: optional
+Maintainer: OpenWrt Developers Team <openwrt-devel@openwrt.org>
+Architecture: ralink
+Installed-Size: 10136
+Filename: libip4tc_1.4.10-4_ralink.ipk
+Size: 10737
+MD5Sum: 60c591ad4995c53c94c11a37c10769d5
+Description:  IPv4 firewall - shared libiptc library
+
+Package: libjson
+Version: 0.9-2
+Depends: libc
+Provides: 
+Source: package/libjson-c
+Section: libs
+Status: unknown ok not-installed
+Essential: no
+Priority: optional
+Maintainer: OpenWrt Developers Team <openwrt-devel@openwrt.org>
+Architecture: ralink
+Installed-Size: 9570
+Filename: libjson_0.9-2_ralink.ipk
+Size: 10210
+MD5Sum: 8852413d37eeb1efa00526b31d44d692
+Description:  This package contains a library for javascript object notation backends.
+
+Package: libnl-tiny
+Version: 0.1-3
+Depends: libc
+Provides: 
+Source: package/libnl-tiny
+Section: libs
+Status: unknown ok not-installed
+Essential: no
+Priority: optional
+Maintainer: OpenWrt Developers Team <openwrt-devel@openwrt.org>
+Architecture: ralink
+Installed-Size: 12749
+Filename: libnl-tiny_0.1-3_ralink.ipk
+Size: 13362
+MD5Sum: 23309ad1378706679c0b2523892420df
+Description:  This package contains a stripped down version of libnl
+
+Package: libopenssl
+Version: 1.0.1e-1
+Depends: libc, zlib
+Provides: 
+Source: package/openssl
+Section: libs
+Status: unknown ok not-installed
+Essential: no
+Priority: optional
+Maintainer: OpenWrt Developers Team <openwrt-devel@openwrt.org>
+Architecture: ralink
+Installed-Size: 631910
+Filename: libopenssl_1.0.1e-1_ralink.ipk
+Size: 626912
+MD5Sum: ebf1173e17b8a575502d4970b86b8b93
+Description:  The OpenSSL Project is a collaborative effort to develop a robust,
+ commercial-grade, full-featured, and Open Source toolkit implementing the Secure
+ Sockets Layer (SSL v2/v3) and Transport Layer Security (TLS v1) protocols as well
+ as a full-strength general purpose cryptography library.
+ This package contains the OpenSSL shared libraries, needed by other programs.
+
+Package: libpthread
+Version: 0.9.33.2-1
+Depends: libgcc
+Provides: 
+Source: package/toolchain
+Section: libs
+Status: unknown hold not-installed
+Essential: yes
+Priority: optional
+Maintainer: OpenWrt Developers Team <openwrt-devel@openwrt.org>
+Architecture: ralink
+Installed-Size: 31010
+Filename: libpthread_0.9.33.2-1_ralink.ipk
+Size: 31634
+MD5Sum: 992ffd69a45fc419233833936ed7ae89
+Description:  POSIX thread library
+
+Package: libstdcpp
+Version: 4.6-linaro-1
+Depends: 
+Provides: 
+Source: package/toolchain
+Section: libs
+Status: unknown hold not-installed
+Essential: yes
+Priority: optional
+Maintainer: OpenWrt Developers Team <openwrt-devel@openwrt.org>
+Architecture: ralink
+Installed-Size: 238697
+Filename: libstdcpp_4.6-linaro-1_ralink.ipk
+Size: 238121
+MD5Sum: 8c6216f8af8861ecc53c0b7f727e28d8
+Description:  GNU Standard C++ Library v3
+
+Package: libubox
+Version: 2013-01-29-0bc317aa4d9af44806c28ca286d79a8b5a92b2b8
+Depends: libc
+Provides: 
+Source: package/libubox
+Section: libs
+Status: unknown ok not-installed
+Essential: no
+Priority: optional
+Maintainer: OpenWrt Developers Team <openwrt-devel@openwrt.org>
+Architecture: ralink
+Installed-Size: 11288
+Filename: libubox_2013-01-29-0bc317aa4d9af44806c28ca286d79a8b5a92b2b8_ralink.ipk
+Size: 11907
+MD5Sum: d08d4840cf0ccc938afa20800e6ece11
+Description:  Basic utility library
+
+Package: libubus
+Version: 2013-01-13-bf566871bd6a633e4504c60c6fc55b2a97305a50
+Depends: libc, libubox
+Provides: 
+Source: package/ubus
+Section: luci2
+Status: unknown ok not-installed
+Essential: no
+Priority: optional
+Maintainer: OpenWrt Developers Team <openwrt-devel@openwrt.org>
+Architecture: ralink
+Installed-Size: 11994
+Filename: libubus_2013-01-13-bf566871bd6a633e4504c60c6fc55b2a97305a50_ralink.ipk
+Size: 12616
+MD5Sum: d15d4a7798ac66c890ce4dd95224c467
+Description:  OpenWrt RPC client library
+
+Package: libuci
+Version: 2013-01-04.1-1
+Depends: libc
+Provides: 
+Source: package/uci
+Section: libs
+Status: unknown ok not-installed
+Essential: no
+Priority: optional
+Maintainer: OpenWrt Developers Team <openwrt-devel@openwrt.org>
+Architecture: ralink
+Installed-Size: 15439
+Filename: libuci_2013-01-04.1-1_ralink.ipk
+Size: 16042
+MD5Sum: 20f958feb7f23e20e6f8ce4ed70064e5
+Description:  C library for the Unified Configuration Interface (UCI)
+
+Package: libxtables
+Version: 1.4.10-4
+Depends: libc
+Provides: 
+Source: package/iptables
+Section: libs
+Status: unknown ok not-installed
+Essential: no
+Priority: optional
+Maintainer: OpenWrt Developers Team <openwrt-devel@openwrt.org>
+Architecture: ralink
+Installed-Size: 10242
+Filename: libxtables_1.4.10-4_ralink.ipk
+Size: 10874
+MD5Sum: ca27170adafe665c591dc07624eba8e5
+Description:  IPv4/IPv6 firewall - shared xtables library
+
+Package: mtd
+Version: 18.1
+Depends: libc
+Provides: 
+Source: package/mtd
+Section: utils
+Status: unknown ok not-installed
+Essential: no
+Priority: optional
+Maintainer: OpenWrt Developers Team <openwrt-devel@openwrt.org>
+Architecture: ralink
+Installed-Size: 8144
+Filename: mtd_18.1_ralink.ipk
+Size: 8817
+MD5Sum: 7e48e7aa4dc1f0546db2ddc6f05bd33f
+Description:  This package contains an utility useful to upgrade from other firmware or
+ older OpenWrt releases.
+
+Package: netifd
+Version: 2013-01-29.2-4bb99d4eb462776336928392010b372236ac3c93
+Depends: libc, libuci, libnl-tiny, libubus, ubus, ubusd, jshn
+Provides: 
+Source: package/netifd
+Section: base
+Status: unknown ok not-installed
+Essential: no
+Priority: optional
+Maintainer: OpenWrt Developers Team <openwrt-devel@openwrt.org>
+Architecture: ralink
+Installed-Size: 40608
+Filename: netifd_2013-01-29.2-4bb99d4eb462776336928392010b372236ac3c93_ralink.ipk
+Size: 41009
+MD5Sum: fa9f499a98b73e540a3235e4bc23395f
+Description:  OpenWrt Network Interface Configuration Daemon
+
+Package: openrtsp
+Version: 2012.02.04-1
+Depends: libc, libstdcpp
+Provides: 
+Source: feeds/packages/net/live
+Section: video
+Status: unknown ok not-installed
+Essential: no
+Priority: optional
+Maintainer: OpenWrt Developers Team <openwrt-devel@openwrt.org>
+Architecture: ralink
+Installed-Size: 123303
+Filename: openrtsp_2012.02.04-1_ralink.ipk
+Size: 123810
+MD5Sum: 573f0c9f314c64ec4d5023a73d2942fc
+Description:  live555 streaming libraries and testProgs
+
+Package: opkg
+Version: 618-3
+Depends: libc
+Provides: 
+Source: package/opkg
+Section: base
+Status: unknown ok not-installed
+Essential: no
+Priority: optional
+Maintainer: Jo-Philipp Wich <xm@subsignal.org>
+Architecture: ralink
+Installed-Size: 57050
+Filename: opkg_618-3_ralink.ipk
+Size: 57820
+MD5Sum: fe1a9222ce026dac1b84228038b00907
+Description:  Lightweight package management system
+ opkg is the opkg Package Management System, for handling
+ installation and removal of packages on a system. It can
+ recursively follow dependencies and download all packages
+ necessary to install a particular package.
+ 
+ opkg knows how to install both .ipk and .deb packages.
+
+Package: ppp-mod-pppoe
+Version: 2.4.5-8
+Depends: libc, kmod-pppoe
+Provides: 
+Source: package/ppp
+Section: net
+Status: unknown ok not-installed
+Essential: no
+Priority: optional
+Maintainer: Jo-Philipp Wich <xm@subsignal.org>
+Architecture: ralink
+Installed-Size: 8690
+Filename: ppp-mod-pppoe_2.4.5-8_ralink.ipk
+Size: 9322
+MD5Sum: 4e012cf66cd50c8ad750e9575edb532b
+Description:  This package contains a PPPoE (PPP over Ethernet) plugin for ppp.
+
+Package: ppp
+Version: 2.4.5-8
+Depends: libc, kmod-ppp
+Provides: 
+Source: package/ppp
+Section: net
+Status: unknown ok not-installed
+Essential: no
+Priority: optional
+Maintainer: Jo-Philipp Wich <xm@subsignal.org>
+Architecture: ralink
+Installed-Size: 107053
+Filename: ppp_2.4.5-8_ralink.ipk
+Size: 107734
+MD5Sum: c59a17b0c68236aa46799b1a5fe6264a
+Description:  This package contains the PPP (Point-to-Point Protocol) daemon.
+
+Package: pyopenssl
+Version: 0.10-1
+Depends: libc, python, libopenssl
+Provides: 
+Source: feeds/packages/lang/pyopenssl
+Section: lang
+Status: unknown ok not-installed
+Essential: no
+Priority: optional
+Maintainer: OpenWrt Developers Team <openwrt-devel@openwrt.org>
+Architecture: ralink
+Installed-Size: 61780
+Filename: pyopenssl_0.10-1_ralink.ipk
+Size: 62466
+MD5Sum: f258dd68d6c9100fb598e9cbd2c0775d
+Description:  Python interface to the OpenSSL library.
+
+Package: python-event
+Version: 0.3-1
+Depends: libc, python-mini, libevent2
+Provides: 
+Source: feeds/packages/lang/pyevent
+Section: lang
+Status: unknown ok not-installed
+Essential: no
+Priority: optional
+Maintainer: OpenWrt Developers Team <openwrt-devel@openwrt.org>
+Architecture: ralink
+Installed-Size: 11872
+Filename: python-event_0.3-1_ralink.ipk
+Size: 12461
+MD5Sum: 2223cf40c9f2c08e5356f3ea2b15d0c1
+Description:  Python interface to libevent
+
+Package: python-mini
+Version: 2.7.3-2
+Depends: libc, libpthread, zlib
+Provides: 
+Source: feeds/packages/lang/python
+Section: lang
+Status: unknown ok not-installed
+Essential: no
+Priority: optional
+Maintainer: OpenWrt Developers Team <openwrt-devel@openwrt.org>
+Architecture: ralink
+Installed-Size: 1371835
+Filename: python-mini_2.7.3-2_ralink.ipk
+Size: 1350628
+MD5Sum: 4d2e63935d9306d46903ac97ec311b16
+Description:  Python is a dynamic object-oriented programming language that can be used
+ for many kinds of software development. It offers strong support for
+ integration with other languages and tools, comes with extensive standard
+ libraries, and can be learned in a few days. Many Python programmers
+ report substantial productivity gains and feel the language encourages
+ the development of higher quality, more maintainable code.
+ .
+ This package contains only a minimal Python install.
+
+Package: python-openssl
+Version: 2.7.3-2
+Depends: libc, python-mini, libopenssl
+Provides: 
+Source: feeds/packages/lang/python
+Section: lang
+Status: unknown ok not-installed
+Essential: no
+Priority: optional
+Maintainer: OpenWrt Developers Team <openwrt-devel@openwrt.org>
+Architecture: ralink
+Installed-Size: 11550
+Filename: python-openssl_2.7.3-2_ralink.ipk
+Size: 12143
+MD5Sum: c93d9128dc89d04173d4dcb55f1137b2
+Description:  Python support for OpenSSL
+
+Package: python
+Version: 2.7.3-2
+Depends: libc, libpthread, zlib, libffi, python-mini
+Provides: 
+Source: feeds/packages/lang/python
+Section: lang
+Status: unknown ok not-installed
+Essential: no
+Priority: optional
+Maintainer: OpenWrt Developers Team <openwrt-devel@openwrt.org>
+Architecture: ralink
+Installed-Size: 1902904
+Filename: python_2.7.3-2_ralink.ipk
+Size: 1902407
+MD5Sum: 09752ded3fc2d414a5bdf97c04695b2f
+Description:  Python is a dynamic object-oriented programming language that can be used
+ for many kinds of software development. It offers strong support for
+ integration with other languages and tools, comes with extensive standard
+ libraries, and can be learned in a few days. Many Python programmers
+ report substantial productivity gains and feel the language encourages
+ the development of higher quality, more maintainable code.
+ .
+ This package contains the full Python install.
+
+Package: ralink-utils
+Version: 1
+Depends: libc
+Provides: 
+Source: package/ralink-utils
+Section: ralink
+Status: unknown ok not-installed
+Essential: no
+Priority: optional
+Maintainer: OpenWrt Developers Team <openwrt-devel@openwrt.org>
+Architecture: ralink
+Installed-Size: 19987
+Filename: ralink-utils_1_ralink.ipk
+Size: 20572
+MD5Sum: 19a107882653ed15df884893f37d9cae
+Description:  Ralink RT305x appsi
+
+Package: ralink-wifi
+Version: 1
+Depends: libc
+Provides: 
+Source: package/ralink-wifi
+Section: ralink
+Status: unknown ok not-installed
+Essential: no
+Priority: optional
+Maintainer: OpenWrt Developers Team <openwrt-devel@openwrt.org>
+Architecture: ralink
+Installed-Size: 472182
+Filename: ralink-wifi_1_ralink.ipk
+Size: 470161
+MD5Sum: b80054f7e9f7d48f0524f2deca3000bd
+Description:  Ralink APSoC WiFi driver for DreamBox
+
+Package: ubus
+Version: 2013-01-13-bf566871bd6a633e4504c60c6fc55b2a97305a50
+Depends: libc, libubus, libblobmsg-json, ubusd
+Provides: 
+Source: package/ubus
+Section: luci2
+Status: unknown ok not-installed
+Essential: no
+Priority: optional
+Maintainer: OpenWrt Developers Team <openwrt-devel@openwrt.org>
+Architecture: ralink
+Installed-Size: 3489
+Filename: ubus_2013-01-13-bf566871bd6a633e4504c60c6fc55b2a97305a50_ralink.ipk
+Size: 4152
+MD5Sum: 8ef7a3e1d0ae4ad37991b45567b93c22
+Description:  OpenWrt RPC client utility
+
+Package: ubusd
+Version: 2013-01-13-bf566871bd6a633e4504c60c6fc55b2a97305a50
+Depends: libc, libubox
+Provides: 
+Source: package/ubus
+Section: luci2
+Status: unknown ok not-installed
+Essential: no
+Priority: optional
+Maintainer: OpenWrt Developers Team <openwrt-devel@openwrt.org>
+Architecture: ralink
+Installed-Size: 7655
+Filename: ubusd_2013-01-13-bf566871bd6a633e4504c60c6fc55b2a97305a50_ralink.ipk
+Size: 8334
+MD5Sum: 15ac36b65977cc785f099436a303f36b
+Description:  OpenWrt RPC daemon
+
+Package: uci
+Version: 2013-01-04.1-1
+Depends: libc, libuci
+Provides: 
+Source: package/uci
+Section: base
+Status: unknown ok not-installed
+Essential: no
+Priority: optional
+Maintainer: OpenWrt Developers Team <openwrt-devel@openwrt.org>
+Architecture: ralink
+Installed-Size: 6891
+Filename: uci_2013-01-04.1-1_ralink.ipk
+Size: 7574
+MD5Sum: 11a87af5c39387ad2232a33025fe5c52
+Description:  Utility for the Unified Configuration Interface (UCI)
+
+Package: uhttpd
+Version: 2012-10-30-e57bf6d8bfa465a50eea2c30269acdfe751a46fd
+Depends: libc, libubox
+Provides: 
+Source: package/uhttpd
+Section: net
+Status: unknown ok not-installed
+Essential: no
+Priority: optional
+Maintainer: OpenWrt Developers Team <openwrt-devel@openwrt.org>
+Architecture: ralink
+Installed-Size: 18853
+Filename: uhttpd_2012-10-30-e57bf6d8bfa465a50eea2c30269acdfe751a46fd_ralink.ipk
+Size: 19621
+MD5Sum: aee21558692a2cffc7e033c86d374a45
+Description:  uHTTPd is a tiny single threaded HTTP server with TLS, CGI and Lua
+ support. It is intended as a drop-in replacement for the Busybox
+ HTTP daemon.
+
+Package: wireless-tools
+Version: 29-5
+Depends: libc
+Provides: 
+Source: package/wireless-tools
+Section: net
+Status: unknown ok not-installed
+Essential: no
+Priority: optional
+Maintainer: OpenWrt Developers Team <openwrt-devel@openwrt.org>
+Architecture: ralink
+Installed-Size: 22755
+Filename: wireless-tools_29-5_ralink.ipk
+Size: 23355
+MD5Sum: d4b4736926d4a7e9ec6bd7943e0a8613
+Description:  This package contains a collection of tools for configuring wireless
+ adapters implementing the "Linux Wireless Extensions".
+
+Package: zlib
+Version: 1.2.7-1
+Depends: libc
+Provides: 
+Source: package/zlib
+Section: libs
+Status: unknown ok not-installed
+Essential: no
+Priority: optional
+Maintainer: OpenWrt Developers Team <openwrt-devel@openwrt.org>
+Architecture: ralink
+Installed-Size: 40051
+Filename: zlib_1.2.7-1_ralink.ipk
+Size: 40711
+MD5Sum: 8c4931a5402470031473aebeade3a1d4
+Description:  Library implementing the deflate compression method
+

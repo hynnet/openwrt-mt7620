@@ -1,0 +1,69 @@
+#!/bin/sh
+
+. /etc/functions.sh
+. /lib/ralink.sh
+. /lib/functions/uci-defaults.sh
+
+if [ ! -x /usr/sbin/maccalc ]; then
+	echo "$0: maccalc not found!"
+	return
+fi
+
+ralink_setup_interfaces()
+{
+	local board="$1"
+
+	ucidef_set_interface_loopback
+
+	case $board in
+	dir-620 | \
+	mw305r | \
+	pbx20)
+		ucidef_set_interfaces_lan_wan "eth2.1" "eth2.2"
+		;;
+
+	rt-n56u)
+		ucidef_set_interfaces_lan_wan "eth2.1" "eth2.2"
+		ucidef_add_switch "switch0" "1" "1"
+		ucidef_add_switch_vlan "switch0" "1" "0 1 2 3 8t"
+		ucidef_add_switch_vlan "switch0" "2" "4 8t"
+		;;
+	freestation5 | \
+	wcr-150gn)
+		ucidef_set_interfaces_lan_wan "eth2.2" "eth2.1"
+		;;
+	hg255d | \
+	hg256)
+		ucidef_set_interfaces_lan_wan "eth2.1" "eth2.2"
+		;;
+	*)
+		ucidef_set_interfaces_lan_wan "eth2.1" "eth2.2"
+	esac
+}
+
+ralink_setup_macs()
+{
+	local lan_mac=""
+	local wan_mac=""
+
+	lan_mac=$(cat /sys/class/net/eth2/address)
+	wan_mac=$(/usr/sbin/maccalc add "$lan_mac" 1)
+
+
+	[ -n "$lan_mac" ] && ucidef_set_interface_macaddr lan $lan_mac
+	[ -n "$wan_mac" ] && ucidef_set_interface_macaddr wan $wan_mac
+}
+
+[ -e /etc/config/network ] && exit 0
+
+touch /etc/config/network
+
+board=$(ralink_board_name)
+
+ralink_setup_interfaces $board
+
+ralink_setup_macs
+
+uci commit network
+
+exit 0

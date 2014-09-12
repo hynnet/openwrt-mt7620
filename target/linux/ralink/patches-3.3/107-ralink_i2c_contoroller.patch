@@ -1,0 +1,26 @@
+Index: linux-3.3.8.ralink/drivers/i2c/busses/Kconfig
+===================================================================
+--- linux-3.3.8.ralink/drivers/i2c/busses/Kconfig	(版本 21)
++++ linux-3.3.8.ralink/drivers/i2c/busses/Kconfig	(工作副本)
+@@ -698,6 +698,9 @@
+ 
+ comment "External I2C/SMBus adapter drivers"
+ 
++config I2C_RALINK
++	tristate "Ralink I2C Controller"
++
+ config I2C_DIOLAN_U2C
+ 	tristate "Diolan U2C-12 USB adapter"
+ 	depends on USB
+Index: linux-3.3.8.ralink/drivers/i2c/busses/Makefile
+===================================================================
+--- linux-3.3.8.ralink/drivers/i2c/busses/Makefile	(版本 21)
++++ linux-3.3.8.ralink/drivers/i2c/busses/Makefile	(工作副本)
+@@ -68,6 +68,7 @@
+ obj-$(CONFIG_I2C_VERSATILE)	+= i2c-versatile.o
+ obj-$(CONFIG_I2C_OCTEON)	+= i2c-octeon.o
+ obj-$(CONFIG_I2C_XILINX)	+= i2c-xiic.o
++obj-$(CONFIG_I2C_RALINK)	+= i2c-ralink.o
+ obj-$(CONFIG_I2C_EG20T)         += i2c-eg20t.o
+ 
+ # External I2C/SMBus adapter drivers
